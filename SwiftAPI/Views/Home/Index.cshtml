@@ -145,6 +145,38 @@
 		.headersTable th {
 			background-color: #f1f1f1;
 		}
+		/*request headers styling*/
+
+	.requestHeadersTable {
+		width: 100%;
+		border-collapse: collapse;
+	}
+
+		.requestHeadersTable th,
+		.requestHeadersTable td {
+			border: 1px solid black;
+			padding: 8px;
+			text-align: left;
+		}
+
+		.requestHeadersTable th {
+			background-color: #f1f1f1;
+		}
+	/* Delete Button */
+	.delete-row {
+		background: none;
+		border: none;
+		cursor: pointer;
+		font-size: 18px;
+		color: #e74c3c;
+		transition: 0.3s ease;
+	}
+
+		.delete-row:hover {
+			color: #c0392b;
+			transform: scale(1.1);
+		}
+
 </style>
 <div class="container">
 	<div class="firstPanel">
@@ -173,7 +205,18 @@
 				<textarea class="requestArea" id="requestBodyText" placeholder="Enter your request payload here..."></textarea>
 			</div>
 			<div class="requestContent" id="requestHeaders">
-				<div id="requestHeadersText">Request headers will appear here...</div>
+				<table class="requestHeadersTable">
+					<thead>
+						<tr>
+							<th>Key</th>
+							<th>Value</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+					<tbody id="headersTableBody">
+						<!-- Rows will be dynamically added here -->
+					</tbody>
+				</table>
 			</div>
 		</div>
 
@@ -320,7 +363,6 @@
 			document.querySelector(".responseArea").value = "Error: " + error.message;
 		}
 	});
-
 	function JsonFormatting(jsonVal)
 	{
 		try {
@@ -360,6 +402,49 @@
 			document.querySelectorAll('.ReqtabButton')[1].classList.add('Reqactive');
 		}
 	}
+
+	document.addEventListener("DOMContentLoaded", function () {
+		const headersTableBody = document.getElementById("headersTableBody");
+
+		function addNewRow() {
+			let row = document.createElement("tr");
+
+			row.innerHTML = `
+				<td><input type="text" class="header-key" placeholder="Key"></td>
+				<td><input type="text" class="header-value" placeholder="Value"></td>
+				<td><button class="delete-row">🗑️</button></td>
+			`;
+
+			headersTableBody.appendChild(row);
+
+			// Add event listeners
+			row.querySelector(".header-key").addEventListener("input", checkAndAddRow);
+			row.querySelector(".header-value").addEventListener("input", checkAndAddRow);
+			row.querySelector(".delete-row").addEventListener("click", function () {
+				removeRow(row);
+			});
+		}
+
+		function checkAndAddRow() {
+			let lastRow = headersTableBody.lastElementChild;
+			let keyInput = lastRow.querySelector(".header-key").value.trim();
+			let valueInput = lastRow.querySelector(".header-value").value.trim();
+
+			if (keyInput !== "" || valueInput !== "") {
+				addNewRow();
+			}
+		}
+
+		function removeRow(row) {
+			if (headersTableBody.children.length > 1) {
+				row.remove();
+			}
+		}
+
+		// Initially, add one empty row
+		addNewRow();
+	});
+
 
 </script>
 
