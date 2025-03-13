@@ -1,0 +1,149 @@
+﻿@{
+	ViewData["Title"] = "Home Page";
+}
+
+<style>
+	.secondPanel {
+		margin-top: 10px;
+		display: flex;
+		gap: 10px;
+	}
+
+	.requestArea {
+		width: 900px;
+		height: 500px;
+		color: black;
+		border: 1px solid black;
+		padding: 10px;
+		font-size: 16px;
+		resize: none;
+	}
+
+	.responseArea {
+		width: 900px;
+		height: 500px;
+		color: black;
+		border: 1px solid black;
+		padding: 10px;
+		font-size: 16px;
+		resize: none;
+	}
+</style>
+<div class="container">
+	<div class="firstPanel">
+		@* <label>API Endpoint : </label> *@
+		<form>
+			<select id="httpMethods" name="methods">
+				<option value="get">GET</option>
+				<option value="post">POST</option>
+				<option value="put">PUT</option>
+				<option value="patch">PATCH</option>
+				<option value="delete">DELETE</option>
+			</select>
+			<input type="text" id="endpointUrl" name="endpointUrl" placeholder="Enter the API Endpoing URL here..." />
+			<button type="submit" id="sendAPIBtn" name="sendAPIButton">Send API</button>
+		</form>
+	</div>
+	<div class="secondPanel">
+		<textarea class="requestArea" id="requestData" placeholder="Enter your request payload here..."></textarea>
+		<textarea class="responseArea" id="responseData" placeholder="Response will appear here..." readonly></textarea>
+	</div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+	document.getElementById("sendAPIBtn").addEventListener("click", async function (event) {
+		event.preventDefault();
+		let apiUrl = document.getElementById("endpointUrl").value.trim();
+		let requestData = document.querySelector(".requestArea").value.trim();
+		let selectedMethod = document.getElementById("httpMethods").value;
+
+		if (!apiUrl.trim()) {
+			console.error("Endpoint URL is required");
+			document.querySelector(".responseArea").value = "Error: Endpoint URL is required.";
+			return;
+		}
+
+		try {
+			let response = null;
+			if(selectedMethod.toLowerCase() === "post")
+			{
+				response = await fetch("/Home/CallExternalAPIPost", {
+				method: selectedMethod.toUpperCase(),
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify({
+					endpointUrl: apiUrl,
+					payload: requestData,
+					httpMethod: selectedMethod.toUpperCase()
+				})
+			});
+			let responseData = await response.text();
+				console.log("Response received:", responseData);
+				JsonFormatting(responseData);
+			}
+			else if(selectedMethod.toLowerCase() === "put")
+			{
+				response = await fetch("/Home/CallExternalAPIPut", {
+				method: selectedMethod.toUpperCase(),
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify({
+					endpointUrl: apiUrl,
+					payload: requestData,
+					httpMethod: selectedMethod.toUpperCase()
+				})
+			});
+			let responseData = await response.text();
+				console.log("Response received:", responseData);
+				JsonFormatting(responseData);
+			}
+			else if(selectedMethod.toLowerCase() === "patch")
+			{
+				response = await fetch("/Home/CallExternalAPIPatch", {
+				method: selectedMethod.toUpperCase(),
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify({
+					endpointUrl: apiUrl,
+					payload: requestData,
+					httpMethod: selectedMethod.toUpperCase()
+				})
+			});
+			let responseData = await response.text();
+				console.log("Response received:", responseData);
+				JsonFormatting(responseData);
+			}
+			else if(selectedMethod.toLowerCase() === "get")
+			{
+				response = await fetch(`/Home/CallExternalAPIGet?endpointUrl=${encodeURIComponent(apiUrl)}`, { method: selectedMethod.toUpperCase()});
+				let responseData = await response.text();
+				console.log("Response received:", responseData);
+				JsonFormatting(responseData);
+			}else if(selectedMethod.toLowerCase() === "delete")
+			{
+				response = await fetch(`/Home/CallExternalAPIDelete?endpointUrl=${encodeURIComponent(apiUrl)}`, { method: selectedMethod.toUpperCase()});
+				let responseData = await response.text();
+				console.log("Response received:", responseData);
+				JsonFormatting(responseData);
+			}
+		} catch (error) {
+			document.querySelector(".responseArea").value = "Error: " + error.message;
+		}
+	});
+
+	function JsonFormatting(jsonVal)
+	{
+		try {
+			let formattedJson = JSON.stringify(JSON.parse(jsonVal), null, 4);
+			document.querySelector(".responseArea").value = formattedJson;
+		} catch (error) {
+			document.querySelector(".responseArea").value = jsonVal;
+		}
+	}
+</script>
+
+
+
