@@ -43,7 +43,16 @@ namespace SwiftAPI.Controllers
                 }
                 var response = await _httpClient.SendAsync(reqeustMessage);
                 string responseBody = await response.Content.ReadAsStringAsync();
-                return Ok(responseBody);
+                string respAndHeaders = "###HEADERS###\n";
+
+                foreach (var header in response.Headers)
+                {
+                    respAndHeaders += header.Key + ": " + string.Join(", ", header.Value) + "\n";
+                }
+
+                respAndHeaders += "###BODY###\n" + responseBody;
+
+                return Ok(respAndHeaders);
             }
             catch (Exception ex)
             {

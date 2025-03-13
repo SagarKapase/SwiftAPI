@@ -20,20 +20,21 @@
 	}
 
 	/* .responseArea {
-		width: 900px;
-		height: 500px;
-		color: black;
-		border: 1px solid black;
-		padding: 10px;
-		font-size: 16px;
-		resize: none;
-	} */
+			width: 900px;
+			height: 500px;
+			color: black;
+			border: 1px solid black;
+			padding: 10px;
+			font-size: 16px;
+			resize: none;
+		} */
 
 	.secondPanel {
 		margin-top: 10px;
 		display: flex;
 		gap: 10px;
 	}
+
 	.responseContainer {
 		width: 900px;
 		height: 500px;
@@ -47,19 +48,19 @@
 		border-bottom: 1px solid black;
 	}
 
-	.responseTabs button {
-		flex: 1;
-		padding: 10px;
-		background-color: #f1f1f1;
-		border: none;
-		cursor: pointer;
-		font-size: 16px;
-	}
+		.responseTabs button {
+			flex: 1;
+			padding: 10px;
+			background-color: #f1f1f1;
+			border: none;
+			cursor: pointer;
+			font-size: 16px;
+		}
 
-	.responseTabs button.active {
-		color: white;
-		background-color: #144891;
-	}
+			.responseTabs button.active {
+				color: white;
+				background-color: #144891;
+			}
 
 	.responseContent {
 		flex: 1;
@@ -127,6 +128,23 @@
 	.visibleReq {
 		display: block;
 	}
+	/*response headers styling*/
+	/* Table styles for headers */
+	.headersTable {
+		width: 100%;
+		border-collapse: collapse;
+	}
+
+		.headersTable th,
+		.headersTable td {
+			border: 1px solid black;
+			padding: 8px;
+			text-align: left;
+		}
+
+		.headersTable th {
+			background-color: #f1f1f1;
+		}
 </style>
 <div class="container">
 	<div class="firstPanel">
@@ -168,7 +186,19 @@
 				<textarea class="responseArea" id="responseBodyText" placeholder="Response body will appear here..." readonly></textarea>
 			</div>
 			<div class="responseContent" id="responseHeaders">
-				<div id="responseHeadersText">Response headers will appear here...</div>
+				<table class="headersTable">
+					<thead>
+						<tr>
+							<th>Key</th>
+							<th>Value</th>
+						</tr>
+					</thead>
+					<tbody id="responseHeadersTableBody">
+						<tr>
+							<td colspan="2">Response headers will appear here...</td>
+						</tr>
+					</tbody>
+				</table>
 			</div>
 		</div>
 	</div>
@@ -180,6 +210,9 @@
 		let apiUrl = document.getElementById("endpointUrl").value.trim();
 		let requestData = document.querySelector(".requestArea").value.trim();
 		let selectedMethod = document.getElementById("httpMethods").value;
+		let headersTableBody = document.getElementById('responseHeadersTableBody');
+
+		headersTableBody.innerHTML = '<tr><td colspan="2">Loading...</td></tr>';
 
 		if (!apiUrl.trim()) {
 			console.error("Endpoint URL is required");
@@ -202,9 +235,38 @@
 					httpMethod: selectedMethod.toUpperCase()
 				})
 			});
-			let responseData = await response.text();
-				console.log("Response received:", responseData);
-				JsonFormatting(responseData);
+				let responseText = await response.text();
+				let parts = responseText.split("###BODY###");
+
+				if (parts.length < 2) {
+					console.error("Invalid response format");
+					return;
+				}
+
+				let headersSection = parts[0].replace("###HEADERS###", "").trim();
+				let bodySection = parts[1].trim();
+				alert(headersSection);
+					//let responseData = await response.content;
+					//console.log("Response received:", responseData);
+				JsonFormatting(bodySection);
+
+				headersTableBody.innerHTML = ""; // Clear previous headers
+				let headers = {};
+				headersSection.split("\n").forEach(line => {
+					let [key, value] = line.split(": ");
+					if (key && value) headers[key.trim()] = value.trim();
+				});
+
+				// Iterate over the headers object and add rows to the table
+				for (let key in headers) {
+					let row = `<tr><td>${key}</td><td>${headers[key]}</td></tr>`;
+					headersTableBody.innerHTML += row;
+				}
+
+				// If no headers were found, show a message
+				if (headersTableBody.innerHTML.trim() === "") {
+					headersTableBody.innerHTML = '<tr><td colspan="2">No headers received</td></tr>';
+				}
 			}
 			else if(selectedMethod.toLowerCase() === "put")
 			{
@@ -246,7 +308,8 @@
 				let responseData = await response.text();
 				console.log("Response received:", responseData);
 				JsonFormatting(responseData);
-			}else if(selectedMethod.toLowerCase() === "delete")
+			}
+			else if(selectedMethod.toLowerCase() === "delete")
 			{
 				response = await fetch(`/Home/CallExternalAPIDelete?endpointUrl=${encodeURIComponent(apiUrl)}`, { method: selectedMethod.toUpperCase()});
 				let responseData = await response.text();
@@ -297,6 +360,7 @@
 			document.querySelectorAll('.ReqtabButton')[1].classList.add('Reqactive');
 		}
 	}
+
 </script>
 
 
