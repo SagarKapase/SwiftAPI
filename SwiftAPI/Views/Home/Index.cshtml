@@ -19,7 +19,7 @@
 		resize: none;
 	}
 
-	.responseArea {
+	/* .responseArea {
 		width: 900px;
 		height: 500px;
 		color: black;
@@ -27,6 +27,105 @@
 		padding: 10px;
 		font-size: 16px;
 		resize: none;
+	} */
+
+	.secondPanel {
+		margin-top: 10px;
+		display: flex;
+		gap: 10px;
+	}
+	.responseContainer {
+		width: 900px;
+		height: 500px;
+		border: 1px solid black;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.responseTabs {
+		display: flex;
+		border-bottom: 1px solid black;
+	}
+
+	.responseTabs button {
+		flex: 1;
+		padding: 10px;
+		background-color: #f1f1f1;
+		border: none;
+		cursor: pointer;
+		font-size: 16px;
+	}
+
+	.responseTabs button.active {
+		color: white;
+		background-color: #144891;
+	}
+
+	.responseContent {
+		flex: 1;
+		padding: 10px;
+		overflow: auto;
+		display: none;
+	}
+
+	.responseArea {
+		width: 100%;
+		height: 100%;
+		color: black;
+		border: none;
+		font-size: 16px;
+		resize: none;
+	}
+
+	.visible {
+		display: block;
+	}
+
+	.requestContainer {
+		width: 900px;
+		height: 500px;
+		border: 1px solid black;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.requestTabs {
+		display: flex;
+		border-bottom: 1px solid black;
+	}
+
+		.requestTabs button {
+			flex: 1;
+			padding: 10px;
+			background-color: #f1f1f1;
+			border: none;
+			cursor: pointer;
+			font-size: 16px;
+		}
+
+			.requestTabs button.Reqactive {
+				color: white;
+				background-color: #144891;
+			}
+
+	.requestContent {
+		flex: 1;
+		padding: 10px;
+		overflow: auto;
+		display: none;
+	}
+
+	.requestArea {
+		width: 100%;
+		height: 100%;
+		color: black;
+		border: none;
+		font-size: 16px;
+		resize: none;
+	}
+
+	.visibleReq {
+		display: block;
 	}
 </style>
 <div class="container">
@@ -45,8 +144,33 @@
 		</form>
 	</div>
 	<div class="secondPanel">
-		<textarea class="requestArea" id="requestData" placeholder="Enter your request payload here..."></textarea>
-		<textarea class="responseArea" id="responseData" placeholder="Response will appear here..." readonly></textarea>
+		@* <textarea class="requestArea" id="requestData" placeholder="Enter your request payload here..."></textarea> *@
+		@* <textarea class="responseArea" id="responseData" placeholder="Response will appear here..." readonly></textarea> *@
+		<div class="requestContainer">
+			<div class="requestTabs">
+				<button class="ReqtabButton Reqactive" onclick="showTabReq('body')">Body</button>
+				<button class="ReqtabButton" onclick="showTabReq('headers')">Headers</button>
+			</div>
+			<div class="requestContent visibleReq" id="requestBody">
+				<textarea class="requestArea" id="requestBodyText" placeholder="Enter your request payload here..."></textarea>
+			</div>
+			<div class="requestContent" id="requestHeaders">
+				<div id="requestHeadersText">Request headers will appear here...</div>
+			</div>
+		</div>
+
+		<div class="responseContainer">
+			<div class="responseTabs">
+				<button class="tabButton active" onclick="showTab('body')">Response Body</button>
+				<button class="tabButton" onclick="showTab('headers')">Response Headers</button>
+			</div>
+			<div class="responseContent visible" id="responseBody">
+				<textarea class="responseArea" id="responseBodyText" placeholder="Response body will appear here..." readonly></textarea>
+			</div>
+			<div class="responseContent" id="responseHeaders">
+				<div id="responseHeadersText">Response headers will appear here...</div>
+			</div>
+		</div>
 	</div>
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -141,6 +265,36 @@
 			document.querySelector(".responseArea").value = formattedJson;
 		} catch (error) {
 			document.querySelector(".responseArea").value = jsonVal;
+		}
+	}
+	function showTab(tab) {
+		// Hide all content
+		document.getElementById('responseBody').classList.remove('visible');
+		document.getElementById('responseHeaders').classList.remove('visible');
+		document.querySelectorAll('.tabButton').forEach(btn => btn.classList.remove('active'));
+
+		// Show selected tab content
+		if (tab === 'body') {
+			document.getElementById('responseBody').classList.add('visible');
+			document.querySelectorAll('.tabButton')[0].classList.add('active');
+		} else {
+			document.getElementById('responseHeaders').classList.add('visible');
+			document.querySelectorAll('.tabButton')[1].classList.add('active');
+		}
+	}
+	function showTabReq(tab) {
+		// Hide all content
+		document.getElementById('requestBody').classList.remove('visibleReq');
+		document.getElementById('requestHeaders').classList.remove('visibleReq');
+		document.querySelectorAll('.ReqtabButton').forEach(btn => btn.classList.remove('Reqactive'));
+
+		// Show selected tab content
+		if (tab === 'body') {
+			document.getElementById('requestBody').classList.add('visibleReq');
+			document.querySelectorAll('.ReqtabButton')[0].classList.add('Reqactive');
+		} else {
+			document.getElementById('requestHeaders').classList.add('visibleReq');
+			document.querySelectorAll('.ReqtabButton')[1].classList.add('Reqactive');
 		}
 	}
 </script>
