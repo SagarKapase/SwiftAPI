@@ -288,28 +288,10 @@
 
 				let headersSection = parts[0].replace("###HEADERS###", "").trim();
 				let bodySection = parts[1].trim();
-				alert(headersSection);
 					//let responseData = await response.content;
 					//console.log("Response received:", responseData);
 				JsonFormatting(bodySection);
-
-				headersTableBody.innerHTML = ""; // Clear previous headers
-				let headers = {};
-				headersSection.split("\n").forEach(line => {
-					let [key, value] = line.split(": ");
-					if (key && value) headers[key.trim()] = value.trim();
-				});
-
-				// Iterate over the headers object and add rows to the table
-				for (let key in headers) {
-					let row = `<tr><td>${key}</td><td>${headers[key]}</td></tr>`;
-					headersTableBody.innerHTML += row;
-				}
-
-				// If no headers were found, show a message
-				if (headersTableBody.innerHTML.trim() === "") {
-					headersTableBody.innerHTML = '<tr><td colspan="2">No headers received</td></tr>';
-				}
+				RespHeadersLoading(headersSection,headersTableBody);
 			}
 			else if(selectedMethod.toLowerCase() === "put")
 			{
@@ -324,9 +306,23 @@
 					httpMethod: selectedMethod.toUpperCase()
 				})
 			});
-			let responseData = await response.text();
-				console.log("Response received:", responseData);
-				JsonFormatting(responseData);
+				// let responseData = await response.text();
+				// 	console.log("Response received:", responseData);
+				// 	JsonFormatting(responseData);
+				let responseText = await response.text();
+				let parts = responseText.split("###BODY###");
+
+				if (parts.length < 2) {
+					console.error("Invalid response format");
+					return;
+				}
+
+				let headersSection = parts[0].replace("###HEADERS###", "").trim();
+				let bodySection = parts[1].trim();
+				//let responseData = await response.content;
+				//console.log("Response received:", responseData);
+				JsonFormatting(bodySection);
+				RespHeadersLoading(headersSection,headersTableBody);
 			}
 			else if(selectedMethod.toLowerCase() === "patch")
 			{
@@ -341,23 +337,62 @@
 					httpMethod: selectedMethod.toUpperCase()
 				})
 			});
-			let responseData = await response.text();
-				console.log("Response received:", responseData);
-				JsonFormatting(responseData);
+			// let responseData = await response.text();
+			// 	console.log("Response received:", responseData);
+			// 	JsonFormatting(responseData);
+				let responseText = await response.text();
+				let parts = responseText.split("###BODY###");
+
+				if (parts.length < 2) {
+					console.error("Invalid response format");
+					return;
+				}
+
+				let headersSection = parts[0].replace("###HEADERS###", "").trim();
+				let bodySection = parts[1].trim();
+				//let responseData = await response.content;
+				//console.log("Response received:", responseData);
+				JsonFormatting(bodySection);
+				RespHeadersLoading(headersSection,headersTableBody);
 			}
 			else if(selectedMethod.toLowerCase() === "get")
 			{
 				response = await fetch(`/Home/CallExternalAPIGet?endpointUrl=${encodeURIComponent(apiUrl)}`, { method: selectedMethod.toUpperCase()});
-				let responseData = await response.text();
-				console.log("Response received:", responseData);
-				JsonFormatting(responseData);
+				//let responseData = await response.text();
+				let responseText = await response.text();
+				let parts = responseText.split("###BODY###");
+
+				if (parts.length < 2) {
+					console.error("Invalid response format");
+					return;
+				}
+
+				let headersSection = parts[0].replace("###HEADERS###", "").trim();
+				let bodySection = parts[1].trim();
+				//let responseData = await response.content;
+				//console.log("Response received:", responseData);
+				console.log("Response received:", bodySection);
+				JsonFormatting(bodySection);
+				RespHeadersLoading(headersSection,headersTableBody);
 			}
 			else if(selectedMethod.toLowerCase() === "delete")
 			{
 				response = await fetch(`/Home/CallExternalAPIDelete?endpointUrl=${encodeURIComponent(apiUrl)}`, { method: selectedMethod.toUpperCase()});
-				let responseData = await response.text();
-				console.log("Response received:", responseData);
-				JsonFormatting(responseData);
+				let responseText = await response.text();
+				let parts = responseText.split("###BODY###");
+
+				if (parts.length < 2) {
+					console.error("Invalid response format");
+					return;
+				}
+
+				let headersSection = parts[0].replace("###HEADERS###", "").trim();
+				let bodySection = parts[1].trim();
+				//let responseData = await response.content;
+				//console.log("Response received:", responseData);
+				console.log("Response received:", bodySection);
+				JsonFormatting(bodySection);
+				RespHeadersLoading(headersSection,headersTableBody);
 			}
 		} catch (error) {
 			document.querySelector(".responseArea").value = "Error: " + error.message;
@@ -402,7 +437,26 @@
 			document.querySelectorAll('.ReqtabButton')[1].classList.add('Reqactive');
 		}
 	}
+	function RespHeadersLoading(headersSection,headersTableBody)
+	{
+		headersTableBody.innerHTML = ""; // Clear previous headers
+		let headers = {};
+		headersSection.split("\n").forEach(line => {
+		let [key, value] = line.split(": ");
+			if (key && value) headers[key.trim()] = value.trim();
+		});
 
+				// Iterate over the headers object and add rows to the table
+		for (let key in headers) {
+			let row = `<tr><td>${key}</td><td>${headers[key]}</td></tr>`;
+			headersTableBody.innerHTML += row;
+		}
+
+		// If no headers were found, show a message
+		if (headersTableBody.innerHTML.trim() === "") {
+			headersTableBody.innerHTML = '<tr><td colspan="2">No headers received</td></tr>';
+	    }
+	}
 	document.addEventListener("DOMContentLoaded", function () {
 		const headersTableBody = document.getElementById("headersTableBody");
 
