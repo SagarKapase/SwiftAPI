@@ -36,12 +36,23 @@ namespace SwiftAPI.Controllers
             try
             {
                 HttpMethod httpMethod = new HttpMethod(request.HttpMethod.ToUpper());
-                var reqeustMessage = new HttpRequestMessage(httpMethod, request.EndpointUrl);
+                var requestMessage = new HttpRequestMessage(httpMethod, request.EndpointUrl);
+                // ?? Add request headers
+                if (request.Headers != null)
+                {
+                    foreach (var header in request.Headers)
+                    {
+                        if (!requestMessage.Headers.Contains(header.Key))
+                        {
+                            requestMessage.Headers.Add(header.Key, header.Value);
+                        }
+                    }
+                }
                 if (httpMethod == HttpMethod.Post || httpMethod == HttpMethod.Put || httpMethod == HttpMethod.Patch || httpMethod == HttpMethod.Delete)
                 {
-                    reqeustMessage.Content = new StringContent(request.Payload ?? "{}", Encoding.UTF8, "application/json");
+                    requestMessage.Content = new StringContent(request.Payload ?? "{}", Encoding.UTF8, "application/json");
                 }
-                var response = await _httpClient.SendAsync(reqeustMessage);
+                var response = await _httpClient.SendAsync(requestMessage);
                 string responseBody = await response.Content.ReadAsStringAsync();
                 string respAndHeaders = "###HEADERS###\n";
 

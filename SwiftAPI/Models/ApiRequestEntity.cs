@@ -5,5 +5,6 @@
         public string EndpointUrl { get; set; }
         public string Payload { get; set; }
         public string HttpMethod { get; set; }
+        public Dictionary<string, string> Headers { get; set; }
     }
 }

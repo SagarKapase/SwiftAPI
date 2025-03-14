@@ -254,6 +254,7 @@
 		let requestData = document.querySelector(".requestArea").value.trim();
 		let selectedMethod = document.getElementById("httpMethods").value;
 		let headersTableBody = document.getElementById('responseHeadersTableBody');
+		//const headers = getRequestHeaders();
 
 		headersTableBody.innerHTML = '<tr><td colspan="2">Loading...</td></tr>';
 
@@ -262,20 +263,20 @@
 			document.querySelector(".responseArea").value = "Error: Endpoint URL is required.";
 			return;
 		}
-
 		try {
 			let response = null;
 			if(selectedMethod.toLowerCase() === "post")
 			{
 				response = await fetch("/Home/CallExternalAPIPost", {
 				method: selectedMethod.toUpperCase(),
-				headers: {
+				headers:{
 					"Content-Type": "application/json"
 				},
 				body: JSON.stringify({
 					endpointUrl: apiUrl,
 					payload: requestData,
-					httpMethod: selectedMethod.toUpperCase()
+					httpMethod: selectedMethod.toUpperCase(),
+					headers: getRequestHeaders()
 				})
 			});
 				let responseText = await response.text();
@@ -478,7 +479,7 @@
 				removeRow(row);
 			});
 		}
-
+		
 		function checkAndAddRow() {
 			let lastRow = headersTableBody.lastElementChild;
 			let keyInput = lastRow.querySelector(".header-key").value.trim();
@@ -498,8 +499,20 @@
 		// Initially, add one empty row
 		addNewRow();
 	});
-
-
+	function getRequestHeaders() {
+		const headers = {};
+		document.querySelectorAll("#headersTableBody tr").forEach(row => {
+			const key = row.querySelector(".header-key")?.value.trim();
+			const value = row.querySelector(".header-value")?.value.trim();
+			alert(key);
+			alert(value);
+			if (key && value) { // Only add non-empty keys and values
+				headers[key] = value;
+			}
+		});
+		console.log("Extracted Headers:", headers);
+		return headers;
+	}
 </script>
 
 
