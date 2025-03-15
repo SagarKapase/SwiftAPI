@@ -27,9 +27,9 @@ C:\Users\sagar\OneDrive\Desktop\Project\SwiftAPI\obj\Debug\net8.0\staticwebasset
 C:\Users\sagar\OneDrive\Desktop\Project\SwiftAPI\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.SwiftAPI.props
 C:\Users\sagar\OneDrive\Desktop\Project\SwiftAPI\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.SwiftAPI.props
 C:\Users\sagar\OneDrive\Desktop\Project\SwiftAPI\obj\Debug\net8.0\staticwebassets.pack.json
-C:\Users\sagar\OneDrive\Desktop\Project\SwiftAPI\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\sagar\OneDrive\Desktop\Project\SwiftAPI\obj\Debug\net8.0\SwiftAPI.dll
 C:\Users\sagar\OneDrive\Desktop\Project\SwiftAPI\obj\Debug\net8.0\refint\SwiftAPI.dll
 C:\Users\sagar\OneDrive\Desktop\Project\SwiftAPI\obj\Debug\net8.0\SwiftAPI.pdb
 C:\Users\sagar\OneDrive\Desktop\Project\SwiftAPI\obj\Debug\net8.0\SwiftAPI.genruntimeconfig.cache
 C:\Users\sagar\OneDrive\Desktop\Project\SwiftAPI\obj\Debug\net8.0\ref\SwiftAPI.dll
+C:\Users\sagar\OneDrive\Desktop\Project\SwiftAPI\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
