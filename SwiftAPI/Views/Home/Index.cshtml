@@ -254,7 +254,7 @@
 		let requestData = document.querySelector(".requestArea").value.trim();
 		let selectedMethod = document.getElementById("httpMethods").value;
 		let headersTableBody = document.getElementById('responseHeadersTableBody');
-		//const headers = getRequestHeaders();
+		const headers = getRequestHeaders();
 
 		headersTableBody.innerHTML = '<tr><td colspan="2">Loading...</td></tr>';
 
@@ -304,7 +304,8 @@
 				body: JSON.stringify({
 					endpointUrl: apiUrl,
 					payload: requestData,
-					httpMethod: selectedMethod.toUpperCase()
+					httpMethod: selectedMethod.toUpperCase(),
+					headers: getRequestHeaders()
 				})
 			});
 				// let responseData = await response.text();
@@ -335,7 +336,8 @@
 				body: JSON.stringify({
 					endpointUrl: apiUrl,
 					payload: requestData,
-					httpMethod: selectedMethod.toUpperCase()
+					httpMethod: selectedMethod.toUpperCase(),
+					headers: getRequestHeaders()
 				})
 			});
 			// let responseData = await response.text();
@@ -358,7 +360,10 @@
 			}
 			else if(selectedMethod.toLowerCase() === "get")
 			{
-				response = await fetch(`/Home/CallExternalAPIGet?endpointUrl=${encodeURIComponent(apiUrl)}`, { method: selectedMethod.toUpperCase()});
+				response = await fetch(`/Home/CallExternalAPIGet?endpointUrl=${encodeURIComponent(apiUrl)}`, 
+				{ 
+					method: selectedMethod.toUpperCase()
+				});
 				//let responseData = await response.text();
 				let responseText = await response.text();
 				let parts = responseText.split("###BODY###");
@@ -378,7 +383,10 @@
 			}
 			else if(selectedMethod.toLowerCase() === "delete")
 			{
-				response = await fetch(`/Home/CallExternalAPIDelete?endpointUrl=${encodeURIComponent(apiUrl)}`, { method: selectedMethod.toUpperCase()});
+				response = await fetch(`/Home/CallExternalAPIDelete?endpointUrl=${encodeURIComponent(apiUrl)}`, 
+				{ 
+					method: selectedMethod.toUpperCase()
+				});
 				let responseText = await response.text();
 				let parts = responseText.split("###BODY###");
 
@@ -504,8 +512,6 @@
 		document.querySelectorAll("#headersTableBody tr").forEach(row => {
 			const key = row.querySelector(".header-key")?.value.trim();
 			const value = row.querySelector(".header-value")?.value.trim();
-			alert(key);
-			alert(value);
 			if (key && value) { // Only add non-empty keys and values
 				headers[key] = value;
 			}

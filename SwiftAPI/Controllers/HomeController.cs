@@ -29,6 +29,8 @@ namespace SwiftAPI.Controllers
         }
         public async Task<IActionResult> CallExternalAPI([FromBody] ApiRequestEntity request)
         {
+            System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
+
             if (string.IsNullOrEmpty(request.EndpointUrl))
             {
                 return BadRequest("API Endpoint URL is Reqired");
@@ -54,6 +56,7 @@ namespace SwiftAPI.Controllers
                 }
                 var response = await _httpClient.SendAsync(requestMessage);
                 string responseBody = await response.Content.ReadAsStringAsync();
+
                 string respAndHeaders = "###HEADERS###\n";
 
                 foreach (var header in response.Headers)
@@ -74,6 +77,13 @@ namespace SwiftAPI.Controllers
         [HttpGet]
         public async Task<IActionResult> CallExternalAPIGet([FromQuery] string endpointUrl)
         {
+            //var customHeaders = Request.Headers
+            //.Where(h => !h.Key.StartsWith(":") &&  // Ignore pseudo headers (HTTP/2)
+            //            !h.Key.StartsWith("Sec-") && // Ignore security headers
+            //            !h.Key.Equals("Host", StringComparison.OrdinalIgnoreCase) &&
+            //            !h.Key.Equals("Connection", StringComparison.OrdinalIgnoreCase) &&
+            //            !h.Key.Equals("Accept", StringComparison.OrdinalIgnoreCase))
+            //.ToDictionary(h => h.Key, h => h.Value.ToString());
             return await CallExternalAPI(new ApiRequestEntity { EndpointUrl = endpointUrl, HttpMethod = "GET" });
         }
 

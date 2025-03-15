@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SwiftAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3caf8d79edbe1b20f6ca6e45a419fbab7d371888")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d5d2c80c29741f1ebc2bf1ed7ed4c8c4f1348664")]
 [assembly: System.Reflection.AssemblyProductAttribute("SwiftAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SwiftAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
