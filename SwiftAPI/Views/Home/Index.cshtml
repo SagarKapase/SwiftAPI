@@ -319,8 +319,32 @@
 
 		<div id="Authorization" class="tabcontent">
 			<span class="closeTab" onclick="closeTab('Authorization')">X</span>
-			<h3>Authorization</h3>
-			<p>Authorization is the capital of France.</p>
+			<form>
+				<label for="authType">Authorization Type : </label>
+				<select id="authType" name="authType">
+					<option value="noAuth">No Auth</option>
+					<option value="basicAuth">Basic Auth</option>
+					<option value="bearerToken">Bearer Token</option>
+				</select>
+			</form>
+			<div id="authCredentials" style="display: none;">
+				<div class="form-group">
+					<label for="username">Username</label>
+					<input type="text" id="username" class="form-control" placeholder="Enter Username">
+				</div>
+
+				<div class="form-group">
+					<label for="password">Password</label>
+					<input type="password" id="password" class="form-control" placeholder="Enter Password">
+				</div>
+			</div>
+
+			<div id="bearerToken" style="display: none;">
+				<div class="form-group">
+					<label for="token">Token</label>
+					<input type="text" id="token" class="form-control" placeholder="Enter Token here">
+				</div>
+			</div>
 		</div>
 
 		<div id="Form Data" class="tabcontent">
@@ -718,6 +742,29 @@
 		console.log("Extracted Headers:", headers);
 		return headers;
 	}
+	$(document).ready(function () {
+		console.log("jQuery Loaded - Ready Function Called");
+
+		$('#authType').on('change', function () {
+			console.log("Dropdown Changed: " + $(this).val());
+
+			if ($(this).val() === 'basicAuth') {
+				$('#authCredentials').fadeIn();
+				$('#bearerToken').fadeOut();
+				console.log("Showing Username & Password Fields");
+			} else if($(this).val() === 'bearerToken')
+			{
+				$('#bearerToken').fadeIn();
+				$('#authCredentials').fadeOut();
+				console.log("Showing Bearer Token Fields");
+			}
+			else {
+				$('#authCredentials').fadeOut();
+				$('#bearerToken').fadeOut();
+				console.log("Hiding Username & Password Fields");
+			}
+		});
+	});
 </script>
 
 
