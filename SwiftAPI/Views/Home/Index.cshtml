@@ -181,6 +181,22 @@
 		.paramsHeadersTable th {
 			background-color: #f1f1f1;
 		}
+		/* form data styling */
+	.formDataTable {
+		width: 100%;
+		border-collapse: collapse;
+	}
+
+		.formDataTable th,
+		.formDataTable td {
+			border: 1px solid black;
+			padding: 8px;
+			text-align: left;
+		}
+
+		.formDataTable th {
+			background-color: #f1f1f1;
+		}
 	/*response headers styling*/
 	/* Table styles for headers */
 	.headersTable {
@@ -349,8 +365,20 @@
 
 		<div id="Form Data" class="tabcontent">
 			<span class="closeTab" onclick="closeTab('Form Data')">X</span>
-			<h3>Form Data</h3>
-			<p>Form Data is the capital of Japan.</p>
+			<div class="formDataContent" id="formDataHeaders">
+				<table class="formDataTable">
+					<thead>
+						<tr>
+							<th>Key</th>
+							<th>Value</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+					<tbody id="formDataTableBody">
+						<!-- Rows will be dynamically added here -->
+					</tbody>
+				</table>
+			</div>
 		</div>
 	</div>
 	<div class="secondPanel">
@@ -691,6 +719,47 @@
 	});
 	document.addEventListener("DOMContentLoaded", function () {
 		const headersTableBody = document.getElementById("paramsTableBody");
+
+		function addNewRow() {
+			let row = document.createElement("tr");
+
+			row.innerHTML = `
+				<td><input type="text" class="header-key" placeholder="Key"></td>
+				<td><input type="text" class="header-value" placeholder="Value"></td>
+				<td><button class="delete-row">🗑️</button></td>
+			`;
+
+			headersTableBody.appendChild(row);
+
+			// Add event listeners
+			row.querySelector(".header-key").addEventListener("input", checkAndAddRow);
+			row.querySelector(".header-value").addEventListener("input", checkAndAddRow);
+			row.querySelector(".delete-row").addEventListener("click", function () {
+				removeRow(row);
+			});
+		}
+
+		function checkAndAddRow() {
+			let lastRow = headersTableBody.lastElementChild;
+			let keyInput = lastRow.querySelector(".header-key").value.trim();
+			let valueInput = lastRow.querySelector(".header-value").value.trim();
+
+			if (keyInput !== "" || valueInput !== "") {
+				addNewRow();
+			}
+		}
+
+		function removeRow(row) {
+			if (headersTableBody.children.length > 1) {
+				row.remove();
+			}
+		}
+
+		// Initially, add one empty row
+		addNewRow();
+	});
+	document.addEventListener("DOMContentLoaded", function () {
+		const headersTableBody = document.getElementById("formDataTableBody");
 
 		function addNewRow() {
 			let row = document.createElement("tr");
