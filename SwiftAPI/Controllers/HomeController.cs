@@ -44,10 +44,11 @@ namespace SwiftAPI.Controllers
                 {
                     foreach (var header in request.Headers)
                     {
-                        if (!requestMessage.Headers.Contains(header.Key))
-                        {
-                            requestMessage.Headers.Add(header.Key, header.Value);
-                        }
+                        //if (!requestMessage.Headers.Contains(header.Key))
+                        //{
+                        //    requestMessage.Headers.Add(header.Key, header.Value);
+                        //}
+                        requestMessage.Headers.Add(header.Key, header.Value);
                     }
                 }
                 if (httpMethod == HttpMethod.Post || httpMethod == HttpMethod.Put || httpMethod == HttpMethod.Patch || httpMethod == HttpMethod.Delete)

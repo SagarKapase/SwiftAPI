@@ -33,6 +33,7 @@
 		border-radius: 4px;
 		cursor: pointer;
 	}
+
 	.secondPanel {
 		margin-top: 10px;
 		display: flex;
@@ -50,14 +51,14 @@
 	}
 
 	/* .responseArea {
-			width: 900px;
-			height: 500px;
-			color: black;
-			border: 1px solid black;
-			padding: 10px;
-			font-size: 16px;
-			resize: none;
-		} */
+				width: 900px;
+				height: 500px;
+				color: black;
+				border: 1px solid black;
+				padding: 10px;
+				font-size: 16px;
+				resize: none;
+			} */
 
 	.secondPanel {
 		margin-top: 10px;
@@ -160,11 +161,11 @@
 	}
 	/*params styling*/
 	/* .paramsContent {
-		flex: 1;
-		padding: 10px;
-		overflow: auto;
-		display: none;
-	} */
+			flex: 1;
+			padding: 10px;
+			overflow: auto;
+			display: none;
+		} */
 
 	.paramsHeadersTable {
 		width: 100%;
@@ -181,7 +182,7 @@
 		.paramsHeadersTable th {
 			background-color: #f1f1f1;
 		}
-		/* form data styling */
+	/* form data styling */
 	.formDataTable {
 		width: 100%;
 		border-collapse: collapse;
@@ -214,7 +215,7 @@
 		.headersTable th {
 			background-color: #f1f1f1;
 		}
-		/*request headers styling*/
+	/*request headers styling*/
 
 	.requestHeadersTable {
 		width: 100%;
@@ -245,7 +246,7 @@
 			color: #c0392b;
 			transform: scale(1.1);
 		}
-		/*operations tabs styling*/
+	/*operations tabs styling*/
 	.operationTabs {
 		margin-top: 10px;
 		overflow: hidden;
@@ -464,8 +465,13 @@
 		let requestData = document.querySelector(".requestArea").value.trim();
 		let selectedMethod = document.getElementById("httpMethods").value;
 		let headersTableBody = document.getElementById('responseHeadersTableBody');
-		const headers = getRequestHeaders();
-
+		const headers =
+		{
+			"Content-Type": "application/json",
+			...getRequestHeaders(),
+			...getAuthDetails()
+		}
+		console.log("Headers" + headers);
 		headersTableBody.innerHTML = '<tr><td colspan="2">Loading...</td></tr>';
 
 		if (!apiUrl.trim()) {
@@ -486,7 +492,7 @@
 					endpointUrl: apiUrl,
 					payload: requestData,
 					httpMethod: selectedMethod.toUpperCase(),
-					headers: getRequestHeaders()
+					headers: headers
 				})
 			});
 				let responseText = await response.text();
@@ -515,7 +521,7 @@
 					endpointUrl: apiUrl,
 					payload: requestData,
 					httpMethod: selectedMethod.toUpperCase(),
-					headers: getRequestHeaders()
+					headers: headers
 				})
 			});
 				// let responseData = await response.text();
@@ -547,7 +553,7 @@
 					endpointUrl: apiUrl,
 					payload: requestData,
 					httpMethod: selectedMethod.toUpperCase(),
-					headers: getRequestHeaders()
+					headers: headers
 				})
 			});
 			// let responseData = await response.text();
@@ -570,8 +576,8 @@
 			}
 			else if(selectedMethod.toLowerCase() === "get")
 			{
-				response = await fetch(`/Home/CallExternalAPIGet?endpointUrl=${encodeURIComponent(apiUrl)}`, 
-				{ 
+				response = await fetch(`/Home/CallExternalAPIGet?endpointUrl=${encodeURIComponent(apiUrl)}`,
+				{
 					method: selectedMethod.toUpperCase()
 				});
 				//let responseData = await response.text();
@@ -593,8 +599,8 @@
 			}
 			else if(selectedMethod.toLowerCase() === "delete")
 			{
-				response = await fetch(`/Home/CallExternalAPIDelete?endpointUrl=${encodeURIComponent(apiUrl)}`, 
-				{ 
+				response = await fetch(`/Home/CallExternalAPIDelete?endpointUrl=${encodeURIComponent(apiUrl)}`,
+				{
 					method: selectedMethod.toUpperCase()
 				});
 				let responseText = await response.text();
@@ -674,7 +680,7 @@
 		// If no headers were found, show a message
 		if (headersTableBody.innerHTML.trim() === "") {
 			headersTableBody.innerHTML = '<tr><td colspan="2">No headers received</td></tr>';
-	    }
+		}
 	}
 	document.addEventListener("DOMContentLoaded", function () {
 		const headersTableBody = document.getElementById("headersTableBody");
@@ -697,7 +703,7 @@
 				removeRow(row);
 			});
 		}
-		
+
 		function checkAndAddRow() {
 			let lastRow = headersTableBody.lastElementChild;
 			let keyInput = lastRow.querySelector(".header-key").value.trim();
@@ -758,6 +764,7 @@
 		// Initially, add one empty row
 		addNewRow();
 	});
+
 	document.addEventListener("DOMContentLoaded", function () {
 		const headersTableBody = document.getElementById("formDataTableBody");
 
@@ -811,6 +818,31 @@
 		console.log("Extracted Headers:", headers);
 		return headers;
 	}
+		function getAuthDetails() {
+			let authType = $('#authType').val();
+
+			if (authType === 'basicAuth') {
+				let username = $('#username').val();
+				let password = $('#password').val();
+
+				if (username && password) {
+					return {
+						"Authorization": "Basic " + btoa(username + ":" + password)
+					};
+				}
+			} else if (authType === 'bearerToken') {
+				let token = $('#token').val();
+
+			if (token) {
+				return {
+					"Authorization": "Bearer " + token
+				};
+			}
+		}
+		return {}; // Return an empty object if no authentication is selected
+	}
+
+
 	$(document).ready(function () {
 		console.log("jQuery Loaded - Ready Function Called");
 
