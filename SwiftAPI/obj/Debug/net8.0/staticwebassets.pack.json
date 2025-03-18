@@ -5,12 +5,20 @@
       "PackagePath": "staticwebassets\\SwiftAPI.5itshunlxy.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\sagar\\OneDrive\\Desktop\\Project\\SwiftAPI\\wwwroot\\css\\Styles.css",
+      "PackagePath": "staticwebassets\\css\\Styles.css"
+    },
+    {
       "Id": "C:\\Users\\sagar\\OneDrive\\Desktop\\Project\\SwiftAPI\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
       "Id": "C:\\Users\\sagar\\OneDrive\\Desktop\\Project\\SwiftAPI\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\sagar\\OneDrive\\Desktop\\Project\\SwiftAPI\\wwwroot\\js\\Script.js",
+      "PackagePath": "staticwebassets\\js\\Script.js"
     },
     {
       "Id": "C:\\Users\\sagar\\OneDrive\\Desktop\\Project\\SwiftAPI\\wwwroot\\js\\site.js",

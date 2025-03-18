@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "608QV3VCF25rzic64BN+7fQUMOIpicTVnZUcsjs4tl0=",
+  "Hash": "2pbYFfIBkxLR2G0om7kfG7lwe2oDhfH6YTcdkA+Bk3o=",
   "Source": "SwiftAPI",
   "BasePath": "_content/SwiftAPI",
   "Mode": "Default",
@@ -80,6 +80,27 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
+      "Identity": "C:\\Users\\sagar\\OneDrive\\Desktop\\Project\\SwiftAPI\\wwwroot\\css\\Styles.css",
+      "SourceId": "SwiftAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\sagar\\OneDrive\\Desktop\\Project\\SwiftAPI\\wwwroot\\",
+      "BasePath": "_content/SwiftAPI",
+      "RelativePath": "css/Styles#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "zuvrfn0amt",
+      "Integrity": "C4UhtfHQfwB2xgeN1dZxPt+7g3voMXkwO0TFWwv49Kg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Styles.css"
+    },
+    {
       "Identity": "C:\\Users\\sagar\\OneDrive\\Desktop\\Project\\SwiftAPI\\wwwroot\\favicon.ico",
       "SourceId": "SwiftAPI",
       "SourceType": "Discovered",
@@ -99,6 +120,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\sagar\\OneDrive\\Desktop\\Project\\SwiftAPI\\wwwroot\\js\\Script.js",
+      "SourceId": "SwiftAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\sagar\\OneDrive\\Desktop\\Project\\SwiftAPI\\wwwroot\\",
+      "BasePath": "_content/SwiftAPI",
+      "RelativePath": "js/Script#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "ej23t5ak6y",
+      "Integrity": "mkAAVajNfwlUXpl/O1xwkFxhCFQRRQ+z8YiLWasBsBo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\Script.js"
     },
     {
       "Identity": "C:\\Users\\sagar\\OneDrive\\Desktop\\Project\\SwiftAPI\\wwwroot\\js\\site.js",
@@ -1403,6 +1445,88 @@
       ]
     },
     {
+      "Route": "css/Styles.css",
+      "AssetFile": "C:\\Users\\sagar\\OneDrive\\Desktop\\Project\\SwiftAPI\\wwwroot\\css\\Styles.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5456"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"C4UhtfHQfwB2xgeN1dZxPt+7g3voMXkwO0TFWwv49Kg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 18 Mar 2025 16:09:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-C4UhtfHQfwB2xgeN1dZxPt+7g3voMXkwO0TFWwv49Kg="
+        }
+      ]
+    },
+    {
+      "Route": "css/Styles.zuvrfn0amt.css",
+      "AssetFile": "C:\\Users\\sagar\\OneDrive\\Desktop\\Project\\SwiftAPI\\wwwroot\\css\\Styles.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5456"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"C4UhtfHQfwB2xgeN1dZxPt+7g3voMXkwO0TFWwv49Kg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 18 Mar 2025 16:09:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "zuvrfn0amt"
+        },
+        {
+          "Name": "label",
+          "Value": "css/Styles.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-C4UhtfHQfwB2xgeN1dZxPt+7g3voMXkwO0TFWwv49Kg="
+        }
+      ]
+    },
+    {
       "Route": "favicon.61n19gt1b8.ico",
       "AssetFile": "C:\\Users\\sagar\\OneDrive\\Desktop\\Project\\SwiftAPI\\wwwroot\\favicon.ico",
       "Selectors": [],
@@ -1481,6 +1605,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM="
+        }
+      ]
+    },
+    {
+      "Route": "js/Script.ej23t5ak6y.js",
+      "AssetFile": "C:\\Users\\sagar\\OneDrive\\Desktop\\Project\\SwiftAPI\\wwwroot\\js\\Script.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "14519"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"mkAAVajNfwlUXpl/O1xwkFxhCFQRRQ+z8YiLWasBsBo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 18 Mar 2025 16:27:12 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ej23t5ak6y"
+        },
+        {
+          "Name": "label",
+          "Value": "js/Script.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-mkAAVajNfwlUXpl/O1xwkFxhCFQRRQ+z8YiLWasBsBo="
+        }
+      ]
+    },
+    {
+      "Route": "js/Script.js",
+      "AssetFile": "C:\\Users\\sagar\\OneDrive\\Desktop\\Project\\SwiftAPI\\wwwroot\\js\\Script.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "14519"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"mkAAVajNfwlUXpl/O1xwkFxhCFQRRQ+z8YiLWasBsBo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 18 Mar 2025 16:27:12 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-mkAAVajNfwlUXpl/O1xwkFxhCFQRRQ+z8YiLWasBsBo="
         }
       ]
     },

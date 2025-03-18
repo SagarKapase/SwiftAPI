@@ -1,5 +1,7 @@
 wwwroot\css\site.css
+wwwroot\css\Styles.css
 wwwroot\favicon.ico
+wwwroot\js\Script.js
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap.css
 wwwroot\lib\bootstrap\dist\css\bootstrap.css.map
