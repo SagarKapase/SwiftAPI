@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\sagar\\OneDrive\\Desktop\\Project\\SwiftAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9F912129-2D7A-460E-A4FA-5BD1A13A0930}|SwiftAPI.csproj|c:\\users\\sagar\\onedrive\\desktop\\project\\swiftapi\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{9F912129-2D7A-460E-A4FA-5BD1A13A0930}|SwiftAPI.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{9F912129-2D7A-460E-A4FA-5BD1A13A0930}|SwiftAPI.csproj|c:\\users\\sagar\\onedrive\\desktop\\project\\swiftapi\\wwwroot\\js\\script.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{9F912129-2D7A-460E-A4FA-5BD1A13A0930}|SwiftAPI.csproj|solutionrelative:wwwroot\\js\\script.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F912129-2D7A-460E-A4FA-5BD1A13A0930}|SwiftAPI.csproj|c:\\users\\sagar\\onedrive\\desktop\\project\\swiftapi\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9F912129-2D7A-460E-A4FA-5BD1A13A0930}|SwiftAPI.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9F912129-2D7A-460E-A4FA-5BD1A13A0930}|SwiftAPI.csproj|c:\\users\\sagar\\onedrive\\desktop\\project\\swiftapi\\wwwroot\\css\\styles.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
@@ -37,7 +37,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -53,13 +53,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Script.js",
               "DocumentMoniker": "C:\\Users\\sagar\\OneDrive\\Desktop\\Project\\SwiftAPI\\wwwroot\\js\\Script.js",
               "RelativeDocumentMoniker": "wwwroot\\js\\Script.js",
               "ToolTip": "C:\\Users\\sagar\\OneDrive\\Desktop\\Project\\SwiftAPI\\wwwroot\\js\\Script.js",
               "RelativeToolTip": "wwwroot\\js\\Script.js",
-              "ViewState": "AgIAAKwAAAAAAAAAAAAowJoBAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAKYBAAAAAAAAAAAQwMIBAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2025-03-18T16:11:38.027Z",
               "EditorCaption": ""
@@ -72,7 +72,7 @@
               "RelativeDocumentMoniker": "wwwroot\\css\\Styles.css",
               "ToolTip": "C:\\Users\\sagar\\OneDrive\\Desktop\\Project\\SwiftAPI\\wwwroot\\css\\Styles.css",
               "RelativeToolTip": "wwwroot\\css\\Styles.css",
-              "ViewState": "AgIAAPkAAAAAAAAAAAAxwAIBAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAAEMAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
               "WhenOpened": "2025-03-18T16:08:45.789Z",
               "EditorCaption": ""
@@ -129,13 +129,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\sagar\\OneDrive\\Desktop\\Project\\SwiftAPI\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
               "ToolTip": "C:\\Users\\sagar\\OneDrive\\Desktop\\Project\\SwiftAPI\\Views\\Home\\Index.cshtml",
               "RelativeToolTip": "Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJEAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAF0AAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-03-10T15:33:32.753Z",
               "EditorCaption": ""
