@@ -20,6 +20,8 @@
 		<div class="operationTabs">
 			<button class="tablinks" onclick="openTab(event, 'Params')">Params</button>
 			<button class="tablinks" onclick="openTab(event, 'Authorization')">Authorization</button>
+			<button class="tablinks" onclick="openTab(event, 'ReqHeaders')">Headers</button>
+			<button class="tablinks" onclick="openTab(event, 'Body')">Body</button>
 			<button class="tablinks" onclick="openTab(event, 'Form Data')">Form Data</button>
 		</div>
 		<div id="Params" class="tabcontent">
@@ -69,7 +71,31 @@
 				</div>
 			</div>
 		</div>
-
+		<div id="ReqHeaders" class="tabcontent">
+			<span class="closeTab" onclick="closeTab('ReqHeaders')">X</span>
+			<div class="requestContent" id="requestHeaders">
+				<table class="requestHeadersTable">
+					<thead>
+						<tr>
+							<th>Key</th>
+							<th>Value</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+					<tbody id="headersTableBody">
+						<!-- Rows will be dynamically added here -->
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div id="Body" class="tabcontent">
+			<span class="closeTab" onclick="closeTab('Body')">X</span>
+			<div class="requestContainer">
+				<div class="requestContent visibleReq" id="requestBody">
+					<textarea class="requestArea" id="requestBodyText" placeholder="Enter your request payload here..."></textarea>
+				</div>
+			</div>
+		</div>
 		<div id="Form Data" class="tabcontent">
 			<span class="closeTab" onclick="closeTab('Form Data')">X</span>
 			<div class="formDataContent" id="formDataHeaders">
@@ -91,7 +117,7 @@
 	<div class="secondPanel">
 		@* <textarea class="requestArea" id="requestData" placeholder="Enter your request payload here..."></textarea> *@
 		@* <textarea class="responseArea" id="responseData" placeholder="Response will appear here..." readonly></textarea> *@
-		<div class="requestContainer">
+		@* <div class="requestContainer">
 			<div class="requestTabs">
 				<button class="ReqtabButton Reqactive" onclick="showTabReq('body')">Body</button>
 				<button class="ReqtabButton" onclick="showTabReq('headers')">Headers</button>
@@ -99,22 +125,8 @@
 			<div class="requestContent visibleReq" id="requestBody">
 				<textarea class="requestArea" id="requestBodyText" placeholder="Enter your request payload here..."></textarea>
 			</div>
-			<div class="requestContent" id="requestHeaders">
-				<table class="requestHeadersTable">
-					<thead>
-						<tr>
-							<th>Key</th>
-							<th>Value</th>
-							<th>Action</th>
-						</tr>
-					</thead>
-					<tbody id="headersTableBody">
-						<!-- Rows will be dynamically added here -->
-					</tbody>
-				</table>
-			</div>
-		</div>
-		<div class="splitter"></div>
+		</div> *@
+		@* <div class="splitter"></div> *@
 		<div class="responseContainer">
 			<div class="responseTabs">
 				<button class="tabButton active" onclick="showTab('body')">Response Body</button>

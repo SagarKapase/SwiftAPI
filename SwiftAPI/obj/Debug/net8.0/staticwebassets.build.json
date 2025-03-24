@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "vFENI1UgGt+/5VdcxcRTrzG0kbi25HtjnNMNT5wbNcs=",
+  "Hash": "lStT2G1k6FKpiVeW4ZMgZPFRxqHVwfwuwftjC9dTook=",
   "Source": "SwiftAPI",
   "BasePath": "_content/SwiftAPI",
   "Mode": "Default",
@@ -94,8 +94,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "hrzxovwz48",
-      "Integrity": "sxielix4XfHrOYzDrbSM34APm2uifyhlXLASXKvgKUI=",
+      "Fingerprint": "b8hjjr225s",
+      "Integrity": "+7xzRuMNbK5QbVWlmDcpOXzDZoUHxbDylfIhhema0lU=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\Styles.css"
@@ -136,8 +136,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "s1xqgmrmqj",
-      "Integrity": "MH7SLCi6m6rFR9cGPFP6axT1/SrIr1SCEk8ZS3q+sXo=",
+      "Fingerprint": "1huenap4ln",
+      "Integrity": "O/86mcnmUsvNs8r9fPWnMc0oUWfSmqy9ekNAI5vd88w=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\Script.js"
@@ -1445,6 +1445,51 @@
       ]
     },
     {
+      "Route": "css/Styles.b8hjjr225s.css",
+      "AssetFile": "C:\\Users\\sagar\\OneDrive\\Desktop\\Project\\SwiftAPI\\wwwroot\\css\\Styles.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5603"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"+7xzRuMNbK5QbVWlmDcpOXzDZoUHxbDylfIhhema0lU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 24 Mar 2025 02:36:16 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "b8hjjr225s"
+        },
+        {
+          "Name": "label",
+          "Value": "css/Styles.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-+7xzRuMNbK5QbVWlmDcpOXzDZoUHxbDylfIhhema0lU="
+        }
+      ]
+    },
+    {
       "Route": "css/Styles.css",
       "AssetFile": "C:\\Users\\sagar\\OneDrive\\Desktop\\Project\\SwiftAPI\\wwwroot\\css\\Styles.css",
       "Selectors": [],
@@ -1455,7 +1500,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "5596"
+          "Value": "5603"
         },
         {
           "Name": "Content-Type",
@@ -1463,11 +1508,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"sxielix4XfHrOYzDrbSM34APm2uifyhlXLASXKvgKUI=\""
+          "Value": "\"+7xzRuMNbK5QbVWlmDcpOXzDZoUHxbDylfIhhema0lU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 19 Mar 2025 15:12:06 GMT"
+          "Value": "Mon, 24 Mar 2025 02:36:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1477,52 +1522,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-sxielix4XfHrOYzDrbSM34APm2uifyhlXLASXKvgKUI="
-        }
-      ]
-    },
-    {
-      "Route": "css/Styles.hrzxovwz48.css",
-      "AssetFile": "C:\\Users\\sagar\\OneDrive\\Desktop\\Project\\SwiftAPI\\wwwroot\\css\\Styles.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "5596"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"sxielix4XfHrOYzDrbSM34APm2uifyhlXLASXKvgKUI=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 19 Mar 2025 15:12:06 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "hrzxovwz48"
-        },
-        {
-          "Name": "label",
-          "Value": "css/Styles.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-sxielix4XfHrOYzDrbSM34APm2uifyhlXLASXKvgKUI="
+          "Value": "sha256-+7xzRuMNbK5QbVWlmDcpOXzDZoUHxbDylfIhhema0lU="
         }
       ]
     },
@@ -1609,6 +1609,51 @@
       ]
     },
     {
+      "Route": "js/Script.1huenap4ln.js",
+      "AssetFile": "C:\\Users\\sagar\\OneDrive\\Desktop\\Project\\SwiftAPI\\wwwroot\\js\\Script.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "18944"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"O/86mcnmUsvNs8r9fPWnMc0oUWfSmqy9ekNAI5vd88w=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 22 Mar 2025 14:50:13 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "1huenap4ln"
+        },
+        {
+          "Name": "label",
+          "Value": "js/Script.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-O/86mcnmUsvNs8r9fPWnMc0oUWfSmqy9ekNAI5vd88w="
+        }
+      ]
+    },
+    {
       "Route": "js/Script.js",
       "AssetFile": "C:\\Users\\sagar\\OneDrive\\Desktop\\Project\\SwiftAPI\\wwwroot\\js\\Script.js",
       "Selectors": [],
@@ -1619,7 +1664,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "15320"
+          "Value": "18944"
         },
         {
           "Name": "Content-Type",
@@ -1627,11 +1672,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"MH7SLCi6m6rFR9cGPFP6axT1/SrIr1SCEk8ZS3q+sXo=\""
+          "Value": "\"O/86mcnmUsvNs8r9fPWnMc0oUWfSmqy9ekNAI5vd88w=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 19 Mar 2025 15:14:41 GMT"
+          "Value": "Sat, 22 Mar 2025 14:50:13 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1641,52 +1686,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-MH7SLCi6m6rFR9cGPFP6axT1/SrIr1SCEk8ZS3q+sXo="
-        }
-      ]
-    },
-    {
-      "Route": "js/Script.s1xqgmrmqj.js",
-      "AssetFile": "C:\\Users\\sagar\\OneDrive\\Desktop\\Project\\SwiftAPI\\wwwroot\\js\\Script.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "15320"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"MH7SLCi6m6rFR9cGPFP6axT1/SrIr1SCEk8ZS3q+sXo=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 19 Mar 2025 15:14:41 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "s1xqgmrmqj"
-        },
-        {
-          "Name": "label",
-          "Value": "js/Script.js"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-MH7SLCi6m6rFR9cGPFP6axT1/SrIr1SCEk8ZS3q+sXo="
+          "Value": "sha256-O/86mcnmUsvNs8r9fPWnMc0oUWfSmqy9ekNAI5vd88w="
         }
       ]
     },

@@ -36,8 +36,8 @@ button[type=submit] {
 }
 
 .requestArea {
-    width: 900px;
-    height: 500px;
+    width: 100%;
+    height: 250px;
     color: black;
     border: 1px solid black;
     padding: 10px;
@@ -141,21 +141,21 @@ button[type=submit] {
             background-color: #144891;
         }
 
-.requestContent {
+/*.requestContent {
     flex: 1;
     padding: 10px;
     overflow: auto;
     display: none;
-}
+}*/
 
-.requestArea {
+/*.requestArea {
     width: 100%;
     height: 100%;
     color: black;
     border: none;
     font-size: 16px;
     resize: none;
-}
+}*/
 
 .visibleReq {
     display: block;
